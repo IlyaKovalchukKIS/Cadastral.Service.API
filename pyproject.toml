@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "cadastral-service"
+version = "0.1.0"
+description = ""
+authors = ["user <mrlivedance@vk.com>"]
+readme = "README.md"
+packages = [{include = "cadastral"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.112.0"
+uvicorn = {extras = ["fastapi"], version = "^0.30.5"}
+sqlalchemy = {extras = ["fastapi"], version = "^2.0.32"}
+fastapi-users = "^13.0.0"
+pydantic = {extras = ["email"], version = "^2.8.2"}
+asyncpg = "^0.29.0"
+redis = "^5.0.8"
+python-dotenv = "^1.0.1"
+alembic = "^1.13.2"
+aiohttp = "^3.10.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
