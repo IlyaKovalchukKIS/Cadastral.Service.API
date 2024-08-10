@@ -10,10 +10,12 @@ class Config:
     DB_USER: str = os.getenv("DB_USER")
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
     DB_ECHO: bool = os.getenv("DB_ECHO")
+    SERVER_URL: str = os.getenv('SERVER_URL')
+    DB_HOST: str = os.getenv('DB_HOST')
 
-    @staticmethod
-    def DB_URI_async():
-        return f'postgresql+asyncpg://{Config.DB_USER}:{Config.DB_PASSWORD}@localhost:{Config.DB_PORT}/postgres'
+    @property
+    def DB_URI_async(self):
+        return f'postgresql+asyncpg://{Config.DB_USER}:{Config.DB_PASSWORD}@{Config.DB_HOST}:{Config.DB_PORT}/postgres'
 
 
 config = Config()
