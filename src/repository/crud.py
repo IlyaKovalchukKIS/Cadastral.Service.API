@@ -14,4 +14,7 @@ async def create_cadaster(session, data_in):
 
 
 async def get_history(session: AsyncSession):
-    return await session.execute(select(Cadaster))
+    stmt = select(Cadaster).order_by(Cadaster.date_at)
+    result = await session.execute(stmt)
+    cadasters = result.scalars().all()
+    return list(cadasters)
