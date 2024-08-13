@@ -42,7 +42,7 @@ services:
       DB_HOST: db
       DB_ECHO: ${DB_ECHO}
     healthcheck:
-      test: [ "CMD-SHELL", "curl -f http://server:8001/ping" ]
+      test: [ "CMD-SHELL", "curl -x POST -F 'data=None' http://server:8001/ping" ]
     depends_on:
       db:
         condition: service_healthy
