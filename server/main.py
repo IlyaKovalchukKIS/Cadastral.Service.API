@@ -15,13 +15,13 @@ class CadasterCreate(BaseModel):
     width: str
 
 
-@app.get('/ping')
+@app.post('/ping')
 async def root():
     return {"message": "Server started"}
 
 
 @app.post('/status/code')
 async def status_check(data: Annotated[CadasterCreate, Depends()]):
-    await asyncio.sleep(random.randint(1, 2))
+    await asyncio.sleep(random.randint(1, 60))
     result = random.choices([True, False])
     return result[0]
