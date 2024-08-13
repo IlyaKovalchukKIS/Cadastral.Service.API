@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_HOST_AUTH_METHOD: trust
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U ${DB_NAME}" ]
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -27,8 +27,6 @@ services:
       context: ./server
     ports:
       - "8001:8001"
-    depends_on:
-      - db
 
   app:
     container_name: app
@@ -36,6 +34,15 @@ services:
       context: ./src
     ports:
       - "8000:8000"
+    environment:
+      SERVER_URL: ${SERVER_URL}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: db
+      DB_ECHO: ${DB_ECHO}
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -f http://server:8001/" ]
     depends_on:
-      - server
-      - db
+      db:
+        condition: service_healthy
