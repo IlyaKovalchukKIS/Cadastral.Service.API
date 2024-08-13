@@ -11,7 +11,7 @@ class Config:
     DB_PASSWORD: str = os.getenv("DB_PASSWORD")
     DB_ECHO: bool = os.getenv("DB_ECHO")
     SERVER_URL: str = 'http://server:8001/status/code'
-    DB_HOST: str = os.getenv('DB_HOST')
+    DB_HOST: str = 'db'
 
     @property
     def DB_URI_async(self):
