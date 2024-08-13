@@ -16,7 +16,7 @@ class CadasterCreate(BaseModel):
 
 
 @app.post('/ping')
-async def root():
+async def root(data: None = None):
     return {"message": "Server started"}
 
 
