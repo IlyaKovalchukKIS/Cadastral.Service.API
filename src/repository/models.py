@@ -14,5 +14,5 @@ class Cadaster(Base):
     cadaster_number: Mapped[str]  # кадастровый номер
     longitude: Mapped[str]  # долгота
     width: Mapped[str]  # широта
-    date_at: Mapped[datetime] = mapped_column(default=datetime.now())
+    date_at: Mapped[datetime] = mapped_column(default=datetime.now)
     result: Mapped[bool]
