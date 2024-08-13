@@ -9,6 +9,10 @@ class CadasterCreate(BaseModel):
     width: str
 
 
+class CadasterSave(CadasterCreate):
+    result: bool
+
+
 class CadasterRead(CadasterCreate):
     id: int
     date_at: datetime
