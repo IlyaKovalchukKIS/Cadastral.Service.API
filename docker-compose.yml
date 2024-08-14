@@ -1,24 +1,21 @@
-version: '3.8'
-
 services:
 
   db:
     image: postgres:latest
     restart: always
-    container_name: db
+    hostname: db
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_HOST_AUTH_METHOD: trust
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 5s
       timeout: 5s
       retries: 5
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
     ports:
-      - 1234:5432
+      - ${DB_PORT}:5432
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
 
 
   server:
@@ -31,12 +28,12 @@ services:
   app:
     container_name: app
     build:
-      context: ./src
+      context: .
     ports:
       - "8000:8000"
     environment:
       SERVER_URL: ${SERVER_URL}
-      DB_PORT: ${DB_PORT}
+      DB_PORT: 5432
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
       DB_HOST: db

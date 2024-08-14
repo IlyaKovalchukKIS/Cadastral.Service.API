@@ -1,3 +1,6 @@
 pgdata/
 .env
 poetry.lock
+server
+images
+Readme.md

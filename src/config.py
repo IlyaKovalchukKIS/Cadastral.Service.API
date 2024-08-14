@@ -15,7 +15,7 @@ class Config:
 
     @property
     def DB_URI_async(self):
-        return f'postgresql+asyncpg://{Config.DB_USER}:{Config.DB_PASSWORD}@{Config.DB_HOST}:{Config.DB_PORT}/postgres'
+        return f'postgresql+asyncpg://{Config.DB_USER}:{Config.DB_PASSWORD}@{Config.DB_HOST}:5432/postgres'
 
 
 config = Config()
