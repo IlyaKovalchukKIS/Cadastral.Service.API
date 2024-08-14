@@ -1,4 +1,4 @@
-pgdata/
+postgres_data/
 .env
 poetry.lock
 server
