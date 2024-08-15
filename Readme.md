@@ -17,7 +17,7 @@ docker-compose build
 docker-compose up -d
 ```
 ```commandline
- docker compose exec app alembic upgrade head
+docker compose exec app alembic upgrade head
 ```
 ### 5. Для просмотра документации перейти по адресу http://127.0.0.1:8000/docs/
 ## Пример API Документации ![](images/img.png)
