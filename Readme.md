@@ -8,8 +8,8 @@ ___
 git clone https://github.com/IlyaKovalchukKIS/Cadastral.Service.API.git
 ```  
 ### 2. Нобходимо переименовать файл [.env.example](.env.example) в ```.env``` и добавить в него свои переменные.
-* ### 3. Скачать и установить [Docker](https://www.docker.com/)
-* ### 4. Выполнить комманды
+### 3. Скачать и установить [Docker](https://www.docker.com/)
+### 4. Выполнить комманды
 ```commandline
 docker-compose build
 ```
